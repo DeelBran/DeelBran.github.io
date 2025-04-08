@@ -43,12 +43,7 @@
     }
 
     header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 80px 20px;
-      background-image: url('your-background.jpg');
+      background-image: url('IMG_2266.JPG');
       background-size: cover;
       background-position: center;
       position: relative;
@@ -57,15 +52,15 @@
     }
 
     header::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(15, 17, 26, 0.6);
-      z-index: 0;
-    }
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 17, 26, 0.3);
+  z-index: 0;
+}
 
     .avatar {
       width: 120px;
@@ -84,13 +79,19 @@
     }
 
     header h1, header p {
-      z-index: 1;
-    }
+  font-size: 18px;
+  color: #ffffff;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.6),
+    0 0 8px rgba(255, 255, 255, 0.4);
+  z-index: 1;
+  animation: fadeInSubtext 1.5s ease-out;
+}
 
     header h1 {
-      font-size: 36px;
-      margin: 10px 0 5px;
-    }
+  font-size: 36px;
+  margin: 10px 0 5px;
+}
 
     header p {
       color: #aaa;
@@ -105,9 +106,16 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInSubtext {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
       to { opacity: 1; transform: translateY(0); }
-    }
+    
 
     .tech-stack, .links, .education, .experience {
       margin-top: 30px;
@@ -151,7 +159,86 @@
       transform: scale(1.02);
     }
 
-    footer {
+    .awards ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.awards li {
+  background-color: var(--card-bg);
+  color: var(--accent);
+  padding: 10px 15px;
+  margin: 8px 0;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: transform 0.3s;
+}
+
+.awards li:hover {
+  transform: scale(1.02);
+}
+
+.certifications ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.certifications li {
+  background-color: var(--card-bg);
+  color: var(--accent);
+  padding: 10px 15px;
+  margin: 8px 0;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: transform 0.3s;
+}
+
+.certifications li:hover {
+  transform: scale(1.02);
+}
+
+body.light-mode header {
+  background-image: url('day.jpeg');
+}
+
+body.light-mode header::before {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+body.light-mode header h1,
+body.light-mode header p {
+  color: #222;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+body:not(.light-mode) header p {
+  color: #ffffff;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.6),
+    0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+#typewriter {
+  font-size: 36px;
+  color: var(--text-color);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 18ch; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--accent); }
+}
+
+footer {
       text-align: center;
       padding: 30px;
       font-size: 14px;
@@ -169,7 +256,7 @@
   <button class="theme-toggle" onclick="document.body.classList.toggle('light-mode')">🌓 切换主题</button>
   <header>
     <img src="IMG_4057.JPG" alt="齐柏源的照片" class="avatar" />
-    <h1>齐柏源的技术博客</h1>
+    <h1 id="typewriter"></h1>
     <p>记录编程、开发与成长的点滴</p>
   </header>
 
@@ -195,10 +282,25 @@
       </ul>
     </div>
 
-    <div class="experience">
-      <h3>💼 工作 / 实习经历</h3>
+    
+
+    
+
+    <div class="awards">
+      <h3>🏆 竞赛经历</h3>
       <ul>
-        <li>亚信数据 · 研究员 · 2025.01 - 2025.02</li>
+        <li>“长城杯”第四届信息安全铁人三项赛总决赛（本科组） · 全国三等奖</li>
+        <li>“长城杯”第四届信息安全铁人三项赛分区赛（本科组） · 华北赛区二等奖</li>
+        <li>CISCN 线上赛队员 · 华北赛区前100</li>
+        <li>BISTU CTF 比赛 · 二等奖</li>
+      </ul>
+    </div>
+
+    <div class="certifications">
+      <h3>📜 证书与技能认证</h3>
+      <ul>
+        <li>NISP 网络信息安全人才能力认证（一级）</li>
+        <li>雅思（IELTS）总分 6.5</li>
       </ul>
     </div>
 
@@ -215,5 +317,20 @@
     📧 我的邮箱：<a href="mailto:qiby032@gmail.com">qiby032@gmail.com</a><br/>
     © 2025 齐柏源的技术博客 | 使用 GitHub Pages 构建
   </footer>
+<script>
+  const text = "齐柏源的技术博客";
+  const target = document.getElementById("typewriter");
+  let index = 0;
+
+  function typeChar() {
+    if (index < text.length) {
+      target.innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeChar, 120);
+    }
+  }
+
+  typeChar();
+</script>
 </body>
 </html>
